@@ -1,0 +1,31 @@
+{
+  "name": "mytinerary-back-ariellevita",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arielLevita/mytinerary-back-arielLevita.git"
+  },
+  "author": "Ariel Levita <levita.ariel@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arielLevita/mytinerary-back-arielLevita/issues"
+  },
+  "homepage": "https://github.com/arielLevita/mytinerary-back-arielLevita#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^7.4.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
