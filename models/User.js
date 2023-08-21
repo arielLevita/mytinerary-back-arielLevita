@@ -1,6 +1,6 @@
 import { Schema, model, Types } from "mongoose";
 
-const collection = 'usres';
+const collection = 'users';
 
 const schema = new Schema({
     name: { type: String, required: true},

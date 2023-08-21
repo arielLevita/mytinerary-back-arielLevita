@@ -1,4 +1,4 @@
-import City from '../models/city.js';
+import City from '../models/City.js';
 
 const controller = {
     getCities: async (req, res) => {
@@ -28,24 +28,15 @@ const controller = {
     },
     getCityById: async (req, res) => {
         try {
-            const singleCity = await City.findById(req.params.id);
-
-            if(singleCity) {
-                res.status(200).json({
-                    success: true,
-                    city: singleCity
-                })
+            const cityId = req.params.id;
+            const city = await City.findById(cityId);
+            if (!city) {
+                return res.status(404).json({ error: 'City not found' });
             }
-            return res.status(404).json ({
-                success: false,
-                message: 'City not found'
-            })
+            res.json({ city });
         } catch (error) {
-            console.log(error);
-            res.status(500).json({
-                success: false,
-                message: 'Getting City error'
-            })
+            console.error(error);
+            res.status(500).json({ error: 'Server error' });
         }
     },
     createCity: async (req, res) => {
@@ -62,7 +53,37 @@ const controller = {
                 message: 'Failed to create City'
             })
         }
-    }
+    },
+    updateCity: async(req, res) => {
+        try {
+            await City.updateOne({_id: req.params.id}, req.body)
+            return res.status(200).json({
+                success: true,
+                message: 'City updated successfully'
+            })
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json({
+                succes: false,
+                message: 'Error trying to update the City'
+            })
+        }
+    },
+    deleteCity: async(req, res) => {
+        try {
+            await City.deleteOne({_id: req.params.id})
+            return res.status(200).json({
+                success: true,
+                message: 'City deleted successfully'
+            })
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json({
+                succes: false,
+                message: 'Error trying to delete the City'
+            })
+        }
+    },
 }
 
 export default controller;

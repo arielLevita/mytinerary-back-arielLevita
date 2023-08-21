@@ -1,0 +1,22 @@
+[
+    {"name": "Rome", "coverURL": "https://i.postimg.cc/28nkMjKB/rome.jpg", "country": "Italy"},
+    {"name": "Athens", "coverURL": "https://i.postimg.cc/k5v74jmM/athens.jpg", "country": "Greece"},
+    {"name": "Barcelona", "coverURL": "https://i.postimg.cc/3Rb54Vbh/barcelona.jpg", "country": "Spain"},
+    {"name": "Paris", "coverURL": "https://i.postimg.cc/FzJqfRLb/paris.jpg", "country": "France"},
+    {"name": "Beijing", "coverURL": "https://i.postimg.cc/nrgJ5gv2/beijing.jpg", "country": "China"},
+    {"name": "Reikiavik", "coverURL": "https://i.postimg.cc/QN2NfK03/reikiavik.jpg", "country": "Iceland"},
+    {"name": "Dubai", "coverURL": "https://i.postimg.cc/908MfLyw/dubai.jpg", "country": "United Arab Emirates"},
+    {"name": "London", "coverURL": "https://i.postimg.cc/sDGySfrN/london.jpg", "country": "England"},
+    {"name": "Moscow", "coverURL": "https://i.postimg.cc/QC9LpmRT/moscow.jpg", "country": "Russia"},
+    {"name": "Pisa", "coverURL": "https://i.postimg.cc/NLqnRc63/pisa.jpg", "country": "Italy"},
+    {"name": "New York", "coverURL": "https://i.postimg.cc/ZqHhZC8C/new-york.jpg", "country": "United States of America"},
+    {"name": "Tokio", "coverURL": "https://i.postimg.cc/dVBqQHvs/tokio.jpg", "country": "Japan"},
+    {"name": "Sydney", "coverURL": "https://i.postimg.cc/wxyT5Q52/sydney.jpg", "country": "Australia"},
+    {"name": "Petra", "coverURL": "https://i.postimg.cc/NFW3bTcP/petra.jpg", "country": "Jordan"},
+    {"name": "Rio do Janeiro", "coverURL": "https://i.postimg.cc/x1Yf2rwp/rio-de-janeiro.jpg", "country": "Brazil"},
+    {"name": "Iguazú", "coverURL": "https://i.postimg.cc/N06jXs1c/iguazu.jpg", "country": "Argentine"},
+    {"name": "Agra", "coverURL": "https://i.postimg.cc/t4Pq0qvx/agra.jpg", "country": "India"},
+    {"name": "Las vegas", "coverURL": "https://i.postimg.cc/HkGmtGWs/las-vegas.jpg", "country": "United States of America"},
+    {"name": "Cairo", "coverURL": "https://i.postimg.cc/02hkHMnv/cairo.jpg", "country": "Egipt"},
+    {"name": "Alesund", "coverURL": "https://i.postimg.cc/XvbV4RtD/alesund.jpg", "country": "Norway"}
+]
