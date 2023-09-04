@@ -7,7 +7,7 @@ const controller = {
             queries.name = new RegExp(`^${req.query.name}`, 'i');
         }
         try {
-            const cities = await City.find(queries).populate('user');
+            const cities = await City.find(queries);
             if(cities.length > 0) {   
                 return res.status(200).json({
                     success: true,

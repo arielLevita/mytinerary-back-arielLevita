@@ -6,7 +6,7 @@ const schema = new Schema({
     name: { type: String, required: true},
     coverURL: { type: String, required: true},
     country: { type: String, required: true},
-    user: {type: Types.ObjectId, ref: 'users'}
+    itineraries: {type: Types.ObjectId, ref: 'itineraries'}
 }, {
     timestamps: true
 })

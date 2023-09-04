@@ -1,11 +1,27 @@
 import User from "../models/User.js";
 
 const controller = {
-    getUsers: (req, res) => {
-        res.json({
-            user: "Ariel Levita",
-            email: "levita.ariel@gmail.com"
-        });
+    getUsers: async (req, res) => {
+        try {
+            const users = await User.find()
+                .populate('itinerary');
+            if(users.length > 0) {   
+                return res.status(200).json({
+                    success: true,
+                    users: users
+                })
+            }
+            return res.status(404).json({
+                succes: false,
+                message: 'There are no users'
+            })
+        } catch (error) {
+            console.log(error);
+            res.status(500).json({
+                success: false,
+                message: 'Getting Users error'
+            })
+        }
     },
     createUser: async (req, res) => {
         try {
