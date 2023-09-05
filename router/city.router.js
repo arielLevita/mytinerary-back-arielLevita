@@ -7,7 +7,7 @@ const {getCities, createCity, getCityById, updateCity, deleteCity} = cityControl
 router.get('/', getCities);
 router.get('/:id', getCityById);
 router.post('/', createCity);
-router.put('/', updateCity);
-router.delete('/', deleteCity);
+router.put('/:id', updateCity);
+router.delete('/:id', deleteCity);
 
 export default router

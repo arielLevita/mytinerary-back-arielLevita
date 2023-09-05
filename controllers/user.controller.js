@@ -4,7 +4,7 @@ const controller = {
     getUsers: async (req, res) => {
         try {
             const users = await User.find()
-                .populate('itinerary');
+                // .populate('itinerary');
             if(users.length > 0) {   
                 return res.status(200).json({
                     success: true,
@@ -37,7 +37,36 @@ const controller = {
             })
         }
     },
-    deleteUser: () => {},
+    updateUser: async(req, res) => {
+        try {
+            await User.updateOne({_id: req.params.id}, req.body)
+            return res.status(200).json({
+                success: true,
+                message: 'User updated successfully'
+            })
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json({
+                succes: false,
+                message: 'Error trying to update the User'
+            })
+        }
+    },
+    deleteUser: async(req, res) => {
+        try {
+            await User.deleteOne({_id: req.params.id})
+            return res.status(200).json({
+                success: true,
+                message: 'User deleted successfully'
+            })
+        } catch (error) {
+            console.log(error);
+            return res.status(500).json({
+                succes: false,
+                message: 'Error trying to delete the User'
+            })
+        }
+    },
 }
 
 export default controller;

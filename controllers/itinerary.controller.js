@@ -35,9 +35,15 @@ const controller = {
                 .populate('city', 'name')
                 .populate('user');
             if (!itinerary) {
-                return res.status(404).json({ error: 'Itinerary not found' });
+                return res.status(404).json({
+                    success: false,
+                    message: 'Itinerary not found'
+                });
             }
-            res.json({ itinerary });
+            return res.status(200).json({
+                success: true,
+                itinerary: itinerary
+            });
         } catch (error) {
             console.error(error);
             res.status(500).json({ error: 'Server error' });
