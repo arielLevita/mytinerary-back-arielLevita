@@ -16,11 +16,7 @@ const controller = {
                 message: 'There are no users'
             })
         } catch (error) {
-            console.log(error);
-            res.status(500).json({
-                success: false,
-                message: 'Getting Users error'
-            })
+            next(error)
         }
     },
     createUser: async (req, res) => {

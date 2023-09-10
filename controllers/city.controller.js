@@ -19,11 +19,7 @@ const controller = {
                 message: 'There are no cities matching your search'
             })
         } catch (error) {
-            console.log(error);
-            res.status(500).json({
-                success: false,
-                message: 'Getting Cities error'
-            })
+            next(error)
         }
     },
     getCityById: async (req, res) => {

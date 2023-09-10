@@ -21,11 +21,7 @@ const controller = {
                 message: 'There are no itineraries.'
             })
         } catch (error) {
-            console.log(error);
-            res.status(500).json({
-                success: false,
-                message: 'Getting Itineraries error'
-            })
+            next(error)
         }
     },
     getItineraryById: async (req, res) => {
