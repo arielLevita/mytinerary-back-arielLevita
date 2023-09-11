@@ -1,9 +1,8 @@
 import Joi from "joi";
 
 export const createItinerarySchema = Joi.object({
-    name: Joi
+    name: Joi.string()
         .required()
-        .string()
         .min(10)
         .max(50)
         .messages({
@@ -12,27 +11,24 @@ export const createItinerarySchema = Joi.object({
             'string.min': 'Your name is too short (at least 10 characters)',
             'string.max': 'Your name is too long (up to 50 characters)'
         }),
-    coverURL: Joi
+    coverURL: Joi.string()
         .required()
-        .string()
         .uri()
         .messages({
             'any.required': 'Your photo is required',
             'string.empty': 'Your photo is required',
             'string.uri': 'Your photo must have a URL format'
         }),
-    duration: Joi
+    duration: Joi.string()
         .required()
-        .string()
         .alphanum()
         .messages({
             'any.required': 'The duration of the itinerary is required',
             'string.empty': 'The duration of the itinerary is required',
             'string.alphanum': 'The duration of the itinerary needs to be alpha-numeric'
         }),
-    price: Joi
+    price: Joi.number()
         .required()
-        .number()
         .min(1)
         .max(5)
         .messages({
@@ -41,9 +37,8 @@ export const createItinerarySchema = Joi.object({
             'number.min': 'The price range must be between 1 and 5',
             'number.max': 'The price range must be between 1 and 5'
         }),
-    activities: Joi
+    activities: Joi.array()
         .required()
-        .array()
         .items(Joi.string())
         .min(3)
         .max(7)
@@ -57,8 +52,7 @@ export const createItinerarySchema = Joi.object({
 })
 
 export const updateItinerarySchema = Joi.object({
-    name: Joi
-        .string()
+    name: Joi.string()
         .min(10)
         .max(50)
         .messages({
@@ -66,22 +60,19 @@ export const updateItinerarySchema = Joi.object({
             'string.min': 'Your name is too short (at least 10 characters)',
             'string.max': 'Your name is too long (up to 50 characters)'
         }),
-    coverURL: Joi
-        .string()
+    coverURL: Joi.string()
         .uri()
         .messages({
             'string.empty': 'Your photo is required',
             'string.uri': 'Your photo must have a URL format'
         }),
-    duration: Joi
-        .string()
+    duration: Joi.string()
         .alphanum()
         .messages({
             'string.empty': 'The duration of the itinerary is required',
             'string.alphanum': 'The duration of the itinerary needs to be alpha-numeric'
         }),
-    price: Joi
-        .number()
+    price: Joi.number()
         .min(1)
         .max(5)
         .messages({
@@ -89,8 +80,7 @@ export const updateItinerarySchema = Joi.object({
             'number.min': 'The price range must be between 1 and 5',
             'number.max': 'The price range must be between 1 and 5'
         }),
-    activities: Joi
-        .array()
+    activities: Joi.array()
         .items(Joi.string())
         .min(3)
         .max(7)

@@ -7,8 +7,11 @@ const schema = new Schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
     photo: { type: String},
-    role: { type: String }
-    //? itineraries: {type: Types.ObjectId, ref: 'itineraries'}
+    online: { type: Boolean, default: false },
+    verified: { type: Boolean, default: true },
+    verified_code: { type: String },
+    // role: { type: String },
+    //? itineraries: {type: Types.ObjectId, ref: 'itineraries'},
 }, {
     timestamps: true
 })

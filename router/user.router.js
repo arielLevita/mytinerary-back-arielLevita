@@ -8,7 +8,7 @@ const {getUsers, createUser, updateUser, deleteUser} = userController;
 
 router.get('/', getUsers);
 router.post('/', validator(createUserSchema), createUser);
-router.put('/:id',validator(updateUserSchema), updateUser);
+router.put('/:id', validator(updateUserSchema), updateUser);
 router.delete('/:id', deleteUser);
 
 export default router
