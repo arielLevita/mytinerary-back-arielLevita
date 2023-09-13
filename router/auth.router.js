@@ -22,7 +22,7 @@ router.post('/signin',
     passwordIsOk,
     signin)
 
-router.post('/signuot', passport.authenticate('jwt', { session: false }), signout)
+router.post('/signout', passport.authenticate('jwt', { session: false }), signout)
 
 router.post('/token', passport.authenticate('jwt', { session: false}), token)
 
