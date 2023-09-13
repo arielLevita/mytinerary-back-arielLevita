@@ -9,6 +9,7 @@ export const accountExistsSignIn = async (req, res, next) => {
             email: user.email,
             photo: user.photo,
             password: user.password,
+            nationality: user.nationality,
             online: user.online,
             verified: user.verified
         }

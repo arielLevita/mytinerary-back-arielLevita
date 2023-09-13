@@ -48,8 +48,12 @@ const controller = {
                 success: true,
                 message: 'User logged in',
                 response: {
-                    user,
                     token,
+                    user: {
+                        name: user.name,
+                        email: user.email,
+                        photo: user.photo
+                    },
                 }
             })
         } catch {
@@ -76,6 +80,22 @@ const controller = {
                 success: false,
                 message: 'User logout failure'
             })
+        }
+    },
+
+    token: async (req, res, next) => {
+        const { user } = req
+        try {
+            return res.status(200).json({
+                // token,
+                user: {
+                    name: user.name,
+                    email: user.email,
+                    photo: user.photo
+                },
+            })
+        } catch (error) {
+            next(error)
         }
     }
 }

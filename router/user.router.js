@@ -8,7 +8,7 @@ const router = express.Router();
 const {getUsers, createUser, updateUser, deleteUser} = userController;
 
 router.get('/', getUsers);
-router.post('/', validator(createUserSchema), createUser);
+router.post('/', validator(createUserSchema), /* TODO prevenir cuentas con correos existentes */ createUser);
 router.put('/:id', passport.authenticate('jwt', { session: false }), validator(updateUserSchema), updateUser);
 router.delete('/:id', passport.authenticate('jwt', { session: false }), deleteUser);
 

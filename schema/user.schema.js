@@ -42,6 +42,12 @@ export const createUserSchema = Joi.object({
             'any.required': 'Your photo is required',
             'string.empty': 'Your photo is required',
             'string.uri': 'Your photo must have a URL format'
+        }),
+    nationality: Joi.string()
+        .required()
+        .messages({
+            'any.required': 'Your nationality is required',
+            'string.empty': 'Your nationality is required',
         })
 })
 
@@ -79,6 +85,10 @@ export const updateUserSchema = Joi.object({
         .messages({
             'string.empty': 'Your photo is required',
             'string.uri': 'Your photo must have a URL format'
+        }),
+    nationality: Joi.string()
+        .messages({
+            'string.empty': 'Please select you nationality'
         })
 })
 
