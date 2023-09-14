@@ -5,22 +5,26 @@ import { accountExistsSignIn } from '../middlewares/auth/accountExistsSignIn.mid
 import { accountHasBeenVerified } from '../middlewares/auth/accountHasBeenVirified.middleware.js';
 import { passwordIsOk } from '../middlewares/auth/passwordIsOk.middleware.js';
 import passport from '../middlewares/passport.js';
+import { validator } from '../middlewares/validator.js';
+import { userSignIn, userSignUp } from '../schema/user.schema.js';
 
-const { signup, signin, signout, token } = authController;
+const { signup, signin, signout, token, googleSignIn } = authController;
 
 const router = express.Router();
 
 router.post('/signup',
-    /* validator(validatorSignUpUser), */
+    validator(userSignUp),
     accountExistsSignUp,
     signup)
 
 router.post('/signin',
-    /* validator(validatorSignInUser), */
+    validator(userSignIn),
     accountExistsSignIn,
     accountHasBeenVerified,
     passwordIsOk,
     signin)
+
+router.post('/google', googleSignIn)
 
 router.post('/signout', passport.authenticate('jwt', { session: false }), signout)
 

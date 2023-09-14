@@ -8,6 +8,7 @@ const schema = new Schema({
     password: { type: String, required: true },
     photo: { type: String, required: true },
     nationality: { type: String, required: true },
+    google: { type: Boolean, default: false},
     online: { type: Boolean, default: false },
     verified: { type: Boolean, default: true },
     verified_code: { type: String },
