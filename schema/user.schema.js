@@ -46,9 +46,7 @@ const photo = Joi.string()
     })
 
 const nationality = Joi.string()
-    .required()
     .messages({
-        'any.required': 'Your nationality is required',
         'string.empty': 'Your nationality is required',
     })
 
@@ -56,8 +54,7 @@ export const createUserSchema = Joi.object({
     email,
     password,
     name,
-    photo,
-    nationality
+    photo
 })
 
 export const updateUserSchema = Joi.object({
@@ -110,6 +107,5 @@ export const userSignUp = Joi.object({
     email,
     password,
     name,
-    photo,
-    nationality
+    photo
 })
