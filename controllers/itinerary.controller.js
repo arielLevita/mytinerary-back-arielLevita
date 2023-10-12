@@ -3,14 +3,14 @@ import Itinerary from "../models/Itinerary.js";
 const controller = {
     getItineraries: async (req, res) => {
         let queries = {};
-        if(req.query.cityId) {
+        if (req.query.cityId) {
             queries.city = req.query.cityId
         }
         try {
             const itineraries = await Itinerary.find(queries)
                 .populate('city', 'name')
                 .populate('user');
-            if(itineraries.length > 0) {   
+            if (itineraries.length > 0) {
                 return res.status(200).json({
                     success: true,
                     itineraries: itineraries
@@ -60,9 +60,9 @@ const controller = {
             })
         }
     },
-    updateItinerary: async(req, res) => {
+    updateItinerary: async (req, res) => {
         try {
-            await Itinerary.updateOne({_id: req.params.id}, req.body)
+            await Itinerary.updateOne({ _id: req.params.id }, req.body)
             return res.status(200).json({
                 success: true,
                 message: 'Itinerary updated successfully'
@@ -75,9 +75,9 @@ const controller = {
             })
         }
     },
-    deleteItinerary: async(req, res) => {
+    deleteItinerary: async (req, res) => {
         try {
-            await Itinerary.deleteOne({_id: req.params.id})
+            await Itinerary.deleteOne({ _id: req.params.id })
             return res.status(200).json({
                 success: true,
                 message: 'Itinerary deleted successfully'

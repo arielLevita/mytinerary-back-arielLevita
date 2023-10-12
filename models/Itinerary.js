@@ -8,8 +8,9 @@ const schema = new Schema({
     duration: { type: String, required: true},
     price: { type: Number, required: true},
     activities: [{ type: String, required: true}],
-    city: {type: Types.ObjectId, ref: 'cities'},
-    user: {type: Types.ObjectId, ref: 'users'},
+    city: { type: Types.ObjectId, ref: 'cities' },
+    user: { type: Types.ObjectId, ref: 'users' },
+    likes: [{ type: String }],
 }, {
     timestamps: true
 })

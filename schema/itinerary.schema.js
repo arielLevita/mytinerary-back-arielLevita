@@ -90,4 +90,5 @@ export const updateItinerarySchema = Joi.object({
             'array.min': 'The itinerary must have at least 3 activities',
             'array.max': 'The itinerary must have no more than 7 activities'
         }),
+    likes: Joi.array()
 })

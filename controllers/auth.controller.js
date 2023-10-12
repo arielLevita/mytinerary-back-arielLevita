@@ -70,8 +70,8 @@ const controller = {
         const {token_id} = req.body
 
         try {
-            const [name, email, photo] = await verify(token_id)
-
+            const {name, email, photo} = await verify(token_id)
+            
             let user = await User.findOne({email});
             if(!user) {
                 const data = {
@@ -82,13 +82,13 @@ const controller = {
                     google: true,
                     verified_code: crypto.randomBytes(12).toString('hex')
                 }
-
+                
                 user = await User.create(data)
             }
-
+            
             user.online = true;
             await user.save()
-
+            
             const token = jwt.sign(
                 {
                     id: user._id,
@@ -98,27 +98,27 @@ const controller = {
                 },
                 process.env.SECRET,
                 { expiresIn: '6h'}
-            )
-
-            res.status(200).json({
-                success: true,
-                message: 'User logged in with Google',
-                response: {
-                    token,
-                    user: {
-                        name: user.name,
-                        email: user.email,
-                        photo: user.photo
-                    },
-                }
-            })
-        } catch (error) {
-            res.status(500).json({
-                success: false,
-                message: 'User autentication failure'
-            })
-        }
-    },
+                )
+                
+                res.status(200).json({
+                    success: true,
+                    message: 'User logged in with Google',
+                    response: {
+                        token,
+                        user: {
+                            name: user.name,
+                            email: user.email,
+                            photo: user.photo
+                        },
+                    }
+                })
+            } catch (error) {
+                res.status(500).json({
+                    success: false,
+                    message: 'User autentication failure'
+                })
+            }
+        },
 
     signout: async (req, res, next) => {
         try {
