@@ -3,19 +3,22 @@ import Comment from '../models/Comment.js';
 const controller = {
     getComments: async (req, res) => {
         try {
-            const comments = await Comment.find()
-                .populate('user', 'name')
-                .populate('user', 'photo')
+            const { itineraryId } = req.query;
+            const query = itineraryId ? { itinerary: itineraryId } : null;
+
+            const comments = await Comment.find(query)
+                .populate('user', 'name email photo')
                 .populate('itinerary', '_id');
+
             if (comments.length > 0) {
                 return res.status(200).json({
                     success: true,
                     comments: comments
                 })
             }
-            return res.status(404).json({
-                succes: false,
-                message: 'There are no comments matching your search'
+            return res.status(200).json({
+                succes: true,
+                comments: []
             })
         } catch (error) {
             next(error)
