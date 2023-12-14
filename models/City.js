@@ -5,6 +5,7 @@ const collection = 'cities';
 const schema = new Schema({
     name: { type: String, required: true},
     coverURL: { type: String, required: true},
+    description: { type: String },
     country: { type: String, required: true},
     itineraries: {type: Types.ObjectId, ref: 'itineraries'}
 }, {
