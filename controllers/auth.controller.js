@@ -37,7 +37,8 @@ const controller = {
                     id: user._id,
                     email: user.email,
                     name: user.name,
-                    photo: user.photo
+                    photo: user.photo,
+                    google: user.google
                 },
                 process.env.SECRET,
                 { expiresIn: '6h'}
@@ -53,7 +54,8 @@ const controller = {
                     user: {
                         name: user.name,
                         email: user.email,
-                        photo: user.photo
+                        photo: user.photo,
+                        google: user.google
                     },
                 }
             })
